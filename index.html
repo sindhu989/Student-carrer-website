@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerPulse | Modern Student Career & Internship Portal</title>
+  <meta name="description" content="Discover top student internships, showcase your projects, track in-demand skills, and connect with top recruiters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" role="region" aria-label="Announcement">
+    <div class="container announcement-content">
+      <span class="badge-pulse"></span>
+      <span class="announcement-text"><strong>Fall 2026 Campus Recruiting Is Live:</strong> 85+ new summer internships added this week!</span>
+      <a href="#jobs" class="announcement-link">Explore Now &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-logo" aria-label="CareerPulse Home">
+        <div class="logo-icon">
+          <i data-lucide="sparkles"></i>
+        </div>
+        <span class="logo-text">Career<span>Pulse</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#profile" class="nav-link">Profile</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#jobs" class="nav-link">Jobs & Internships</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right Nav Controls -->
+      <div class="nav-actions">
+        <!-- Saved Jobs Indicator -->
+        <button class="nav-btn saved-jobs-btn" id="savedJobsToggleBtn" title="View Bookmarked Jobs" aria-label="View Saved Jobs">
+          <i data-lucide="bookmark"></i>
+          <span class="badge-count" id="savedJobsCounter">0</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="nav-btn theme-toggle" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle dark/light theme">
+          <i data-lucide="moon" class="theme-icon-moon"></i>
+          <i data-lucide="sun" class="theme-icon-sun"></i>
+        </button>
+
+        <!-- Edit Profile / Quick Action -->
+        <button class="btn btn-primary btn-sm" id="quickProfileBtn">
+          <i data-lucide="user-check"></i>
+          <span>My Profile</span>
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="nav-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <i data-lucide="menu" class="menu-open-icon"></i>
+          <i data-lucide="x" class="menu-close-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+      <div class="hero-bg-shapes" aria-hidden="true">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i data-lucide="graduation-cap"></i>
+            <span>The #1 Student Career & Opportunity Hub</span>
+          </div>
+
+          <h1 class="hero-title">
+            Bridge the Gap Between <span class="gradient-text">Classroom</span> and Your <span class="gradient-text-alt">Dream Career</span>.
+          </h1>
+
+          <p class="hero-description">
+            Build your professional student identity, showcase real-world projects, master verified industry skills, and apply to vetted internships at top tier tech companies and startups.
+          </p>
+
+          <!-- Hero Search & Action Bar -->
+          <div class="hero-search-box">
+            <div class="hero-search-input-wrap">
+              <i data-lucide="search" class="search-icon"></i>
+              <input type="text" id="heroSearchInput" placeholder="Search internships, roles (e.g. Software, Design, Data)..." aria-label="Search opportunities">
+            </div>
+            <button class="btn btn-primary" id="heroSearchBtn">
+              <span>Find Opportunities</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="hero-quick-tags">
+            <span class="quick-tags-label">Popular Searches:</span>
+            <button class="tag-pill" data-query="Frontend">Frontend</button>
+            <button class="tag-pill" data-query="Python">Python</button>
+            <button class="tag-pill" data-query="Remote">Remote</button>
+            <button class="tag-pill" data-query="Product Design">Product Design</button>
+            <button class="tag-pill" data-query="Machine Learning">Machine Learning</button>
+          </div>
+
+          <!-- Hero Metrics -->
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-number">1,400+</span>
+              <span class="metric-label">Vetted Internships</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <span class="metric-number">94.8%</span>
+              <span class="metric-label">Offer Acceptance Rate</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <span class="metric-number">$42/hr</span>
+              <span class="metric-label">Avg. Engineering Stipend</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <span class="metric-number">350+</span>
+              <span class="metric-label">Partner Companies</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Interactive Preview Card -->
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <!-- Glassmorphism Preview Card -->
+            <div class="featured-student-card">
+              <div class="card-status-pill">
+                <span class="status-dot"></span>
+                <span>Active Candidate &bull; Class of 2026</span>
+              </div>
+              <div class="student-mini-profile">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" alt="Student Avatar" class="mini-avatar" id="heroAvatarImg">
+                <div>
+                  <h3 class="student-name" id="heroCardName">Alex Rivera</h3>
+                  <p class="student-role" id="heroCardRole">Computer Science & Data Senior</p>
+                  <p class="student-uni">State University of Technology &bull; GPA: 3.92</p>
+                </div>
+              </div>
+
+              <div class="card-skills-row">
+                <span class="badge badge-accent">React 18</span>
+                <span class="badge badge-accent">TypeScript</span>
+                <span class="badge badge-accent">Node.js</span>
+                <span class="badge badge-accent">Python / ML</span>
+                <span class="badge badge-accent">Docker</span>
+              </div>
+
+              <div class="hero-card-stats">
+                <div class="stat-mini">
+                  <i data-lucide="folder-git-2"></i>
+                  <span>8 Showcase Projects</span>
+                </div>
+                <div class="stat-mini">
+                  <i data-lucide="award"></i>
+                  <span>3 Hackathon Wins</span>
+                </div>
+              </div>
+
+              <div class="hero-card-actions">
+                <a href="#profile" class="btn btn-outline btn-sm full-width">View Full Portfolio</a>
+              </div>
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-top-right">
+              <div class="icon-circle bg-emerald">
+                <i data-lucide="check-circle-2"></i>
+              </div>
+              <div>
+                <strong>Interview Scheduled</strong>
+                <p>CloudScale AI &bull; Summer 2027</p>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom-left">
+              <div class="icon-circle bg-indigo">
+                <i data-lucide="file-check"></i>
+              </div>
+              <div>
+                <strong>Resume Verified</strong>
+                <p>ATS Score: 96 / 100</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: STUDENT PROFILE -->
+    <section id="profile" class="section profile-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i data-lucide="user"></i>
+            <span>Candidate Dossier</span>
+          </div>
+          <h2 class="section-title">Student Profile & Portfolio</h2>
+          <p class="section-subtitle">
+            A comprehensive overview of academic milestones, hands-on experience, extracurricular leadership, and downloadable credentials.
+          </p>
+        </div>
+
+        <div class="profile-layout">
+          <!-- Profile Sidebar Card -->
+          <div class="profile-card">
+            <div class="profile-banner">
+              <button class="profile-edit-btn" id="openEditProfileBtn" title="Edit Student Profile">
+                <i data-lucide="pencil"></i>
+                <span>Edit Profile</span>
+              </button>
+            </div>
+
+            <div class="profile-info-block">
+              <div class="profile-avatar-wrapper">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Alex Rivera" class="profile-avatar" id="mainProfileAvatar">
+                <span class="online-indicator" title="Actively Seeking Opportunities"></span>
+              </div>
+
+              <h3 class="profile-name" id="profileName">Alex Rivera</h3>
+              <p class="profile-headline" id="profileHeadline">Aspiring Full-Stack Software Engineer & AI Enthusiast</p>
+              <p class="profile-institution">
+                <i data-lucide="map-pin"></i>
+                <span id="profileLocation">San Francisco, CA (Open to Relocation & Remote)</span>
+              </p>
+
+              <div class="profile-status-chip">
+                <i data-lucide="check-circle"></i>
+                <span>Available for Summer 2027 Internships</span>
+              </div>
+
+              <div class="profile-quick-stats">
+                <div class="pstat">
+                  <span class="pstat-value" id="profileGpa">3.92</span>
+                  <span class="pstat-label">Cumulative GPA</span>
+                </div>
+                <div class="pstat">
+                  <span class="pstat-value">2026</span>
+                  <span class="pstat-label">Graduation Year</span>
+                </div>
+                <div class="pstat">
+                  <span class="pstat-value" id="profileProjectCount">6</span>
+                  <span class="pstat-label">Projects Built</span>
+                </div>
+              </div>
+
+              <div class="profile-actions">
+                <button class="btn btn-primary full-width" id="previewResumeBtn">
+                  <i data-lucide="file-text"></i>
+                  <span>View Resume</span>
+                </button>
+                <button class="btn btn-outline full-width" id="downloadResumeBtn">
+                  <i data-lucide="download"></i>
+                  <span>Download PDF</span>
+                </button>
+              </div>
+
+              <div class="profile-socials">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub Profile">
+                  <i data-lucide="github"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn Profile">
+                  <i data-lucide="linkedin"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter / X">
+                  <i data-lucide="twitter"></i>
+                </a>
+                <a href="mailto:alex.rivera@campus.edu" class="social-link" title="Email Alex">
+                  <i data-lucide="mail"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Details Tabs & Content -->
+          <div class="profile-details-card">
+            <!-- Tabs Navigation -->
+            <div class="tabs-header" role="tablist">
+              <button class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-about">
+                <i data-lucide="user"></i> About Me
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-education">
+                <i data-lucide="graduation-cap"></i> Education
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-experience">
+                <i data-lucide="briefcase"></i> Experience
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-awards">
+                <i data-lucide="award"></i> Honors & Certs
+              </button>
+            </div>
+
+            <!-- Tab 1: About Me -->
+            <div class="tab-pane active" id="tab-about" role="tabpanel">
+              <div class="profile-bio-section">
+                <h4 class="subhead">Executive Summary</h4>
+                <p id="profileBioText" class="bio-text">
+                  Honors Computer Science undergraduate with dual concentrations in Cloud Computing and Machine Learning. Passionate about architecting scalable microservices, creating intuitive human-computer interfaces, and leveraging transformer models for automated data extraction. Proven track record of shipping production code, organizing collegiate hackathons with 600+ attendees, and mentoring junior engineers.
+                </p>
+              </div>
+
+              <div class="career-focus-grid">
+                <div class="focus-card">
+                  <div class="focus-icon">
+                    <i data-lucide="code-2"></i>
+                  </div>
+                  <div class="focus-text">
+                    <h5>Primary Engineering Focus</h5>
+                    <p>Distributed Systems, Full-Stack TypeScript/React & Next.js, Cloud Native AWS/GCP, FastAPI Microservices.</p>
+                  </div>
+                </div>
+
+                <div class="focus-card">
+                  <div class="focus-icon">
+                    <i data-lucide="compass"></i>
+                  </div>
+                  <div class="focus-text">
+                    <h5>Target Internship Roles</h5>
+                    <p>Software Engineering Intern, Cloud Infrastructure Intern, Frontend Engineer Intern, Machine Learning Systems Intern.</p>
+                  </div>
+                </div>
+
+                <div class="focus-card">
+                  <div class="focus-icon">
+                    <i data-lucide="globe"></i>
+                  </div>
+                  <div class="focus-text">
+                    <h5>Work Authorization</h5>
+                    <p>US Citizen &bull; No visa sponsorship required &bull; Available for 12-16 week summer commitments.</p>
+                  </div>
+                </div>
+
+                <div class="focus-card">
+                  <div class="focus-icon">
+                    <i data-lucide="calendar"></i>
+                  </div>
+                  <div class="focus-text">
+                    <h5>Earliest Availability</h5>
+                    <p>May 2027 (Full-time Summer) &bull; Fall 2026 (Part-time remote 15-20 hrs/week during school term).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 2: Education -->
+            <div class="tab-pane" id="tab-education" role="tabpanel">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-header">
+                      <div>
+                        <h4 class="timeline-title">Bachelor of Science in Computer Science & Data Systems</h4>
+                        <span class="timeline-institution">State University of Technology &bull; San Francisco, CA</span>
+                      </div>
+                      <span class="timeline-period">Aug 2023 &ndash; Present (Exp. May 2026)</span>
+                    </div>
+                    <p class="timeline-desc">
+                      Dean's List (6 Consecutive Semesters). Recipient of Presidential Academic Excellence Scholarship. President of Association for Computing Machinery (ACM) Student Chapter.
+                    </p>
+                    <div class="coursework-chips">
+                      <span class="course-chip">Data Structures & Algorithms (A+)</span>
+                      <span class="course-chip">Operating Systems & C/C++ (A)</span>
+                      <span class="course-chip">Database Management & SQL (A)</span>
+                      <span class="course-chip">Distributed Cloud Systems (A)</span>
+                      <span class="course-chip">Computer Networks & Security (A-)</span>
+                      <span class="course-chip">Applied Deep Learning (A)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-header">
+                      <div>
+                        <h4 class="timeline-title">High School Diploma &bull; STEM Magnet Track</h4>
+                        <span class="timeline-institution">Pacific Heights Science Academy</span>
+                      </div>
+                      <span class="timeline-period">2019 &ndash; 2023</span>
+                    </div>
+                    <p class="timeline-desc">
+                      Valedictorian, AP National Scholar (Calc BC, Physics C, CS A). Captain of Robotics VEX League Team.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 3: Experience -->
+            <div class="tab-pane" id="tab-experience" role="tabpanel">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-header">
+                      <div>
+                        <h4 class="timeline-title">Undergraduate Software Engineering Fellow</h4>
+                        <span class="timeline-institution">University Tech Incubator &bull; Remote</span>
+                      </div>
+                      <span class="timeline-period">May 2025 &ndash; Aug 2025</span>
+                    </div>
+                    <ul class="timeline-list">
+                      <li>Designed and deployed an internal dashboard with React, Tailwind, and Supabase utilized by 1,200+ active university researchers.</li>
+                      <li>Reduced GraphQL query latency by 38% through Redis caching and query batching optimizations.</li>
+                      <li>Collaborated with 4 cross-functional team members in bi-weekly Agile sprints, Git pull-request code reviews, and CI/CD pipelines via GitHub Actions.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-header">
+                      <div>
+                        <h4 class="timeline-title">Computer Science Teaching Assistant (CS 201)</h4>
+                        <span class="timeline-institution">Department of Computer Science</span>
+                      </div>
+                      <span class="timeline-period">Jan 2025 &ndash; May 2025</span>
+                    </div>
+                    <ul class="timeline-list">
+                      <li>Led weekly lab sessions and office hours for 85+ sophomore students in Data Structures and Object-Oriented Programming (Java & Python).</li>
+                      <li>Created automated autograding unit test suites with JUnit, cutting grading turnaround time by 50%.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 4: Awards & Certifications -->
+            <div class="tab-pane" id="tab-awards" role="tabpanel">
+              <div class="awards-grid">
+                <div class="award-card">
+                  <div class="award-icon bg-amber">
+                    <i data-lucide="trophy"></i>
+                  </div>
+                  <div>
+                    <h5 class="award-title">1st Place &bull; HackWestern 2025</h5>
+                    <p class="award-sub">Built 'EcoTrack', an edge-AI IoT carbon auditor among 180+ university teams.</p>
+                  </div>
+                </div>
+
+                <div class="award-card">
+                  <div class="award-icon bg-blue">
+                    <i data-lucide="cloud"></i>
+                  </div>
+                  <div>
+                    <h5 class="award-title">AWS Certified Solutions Architect &bull; Associate</h5>
+                    <p class="award-sub">Amazon Web Services &bull; Validated multi-tier cloud infrastructure, VPCs, and IAM.</p>
+                  </div>
+                </div>
+
+                <div class="award-card">
+                  <div class="award-icon bg-purple">
+                    <i data-lucide="shield-check"></i>
+                  </div>
+                  <div>
+                    <h5 class="award-title">Meta Certified Front-End Developer</h5>
+                    <p class="award-sub">Comprehensive professional specialization covering React, UX principles, and testing.</p>
+                  </div>
+                </div>
+
+                <div class="award-card">
+                  <div class="award-icon bg-emerald">
+                    <i data-lucide="star"></i>
+                  </div>
+                  <div>
+                    <h5 class="award-title">Grace Hopper Celebration Student Scholar</h5>
+                    <p class="award-sub">Awarded full conference attendance scholarship based on technical leadership & mentorship.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SKILLS & PROJECTS -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i data-lucide="cpu"></i>
+            <span>Technical Capabilities</span>
+          </div>
+          <h2 class="section-title">Skills & Proficiencies</h2>
+          <p class="section-subtitle">
+            Categorized technical stack, frameworks, developer tools, and interpersonal leadership competencies.
+          </p>
+        </div>
+
+        <!-- Skills Filter Tabs -->
+        <div class="skills-filter-wrapper">
+          <div class="filter-pills" id="skillsFilterPills">
+            <button class="filter-pill active" data-category="all">All Skills (16)</button>
+            <button class="filter-pill" data-category="frontend">Frontend & UI</button>
+            <button class="filter-pill" data-category="backend">Backend & DB</button>
+            <button class="filter-pill" data-category="cloud">Cloud & DevOps</button>
+            <button class="filter-pill" data-category="soft">Professional & Soft Skills</button>
+          </div>
+        </div>
+
+        <!-- Skills Grid Container -->
+        <div class="skills-grid" id="skillsGridContainer">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PROJECTS -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i data-lucide="folder-code"></i>
+            <span>Portfolio Highlights</span>
+          </div>
+          <h2 class="section-title">Featured Student Projects</h2>
+          <p class="section-subtitle">
+            End-to-end full stack web applications, AI tools, and production-grade software engineered with modern workflows.
+          </p>
+        </div>
+
+        <!-- Project Controls: Search & Category Filter -->
+        <div class="projects-toolbar">
+          <div class="search-input-box">
+            <i data-lucide="search"></i>
+            <input type="text" id="projectSearchInput" placeholder="Filter projects by title, keyword, or tech stack...">
+            <button class="clear-input-btn" id="clearProjectSearchBtn" aria-label="Clear project search" style="display:none;">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+
+          <div class="filter-pills" id="projectCategoryFilter">
+            <button class="filter-pill active" data-filter="all">All Projects</button>
+            <button class="filter-pill" data-filter="fullstack">Full Stack</button>
+            <button class="filter-pill" data-filter="ai">AI / ML</button>
+            <button class="filter-pill" data-filter="mobile">Mobile / IoT</button>
+            <button class="filter-pill" data-filter="cloud">DevOps / Cloud</button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGridContainer">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div class="projects-empty-state" id="projectsEmptyState" style="display: none;">
+          <div class="empty-icon"><i data-lucide="layers"></i></div>
+          <h3>No matching projects found</h3>
+          <p>Try searching for different keywords or clear the category filters.</p>
+          <button class="btn btn-outline btn-sm" id="resetProjectsFilterBtn">Reset Filter</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: JOBS AND INTERNSHIPS -->
+    <section id="jobs" class="section jobs-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i data-lucide="briefcase"></i>
+            <span>Opportunity Board</span>
+          </div>
+          <h2 class="section-title">Jobs & Internships</h2>
+          <p class="section-subtitle">
+            Curated, student-friendly internships, co-ops, and entry-level positions from verified tech employers and high-growth startups.
+          </p>
+        </div>
+
+        <!-- Jobs Search & Multi-Filter Bar -->
+        <div class="jobs-filter-panel">
+          <div class="jobs-main-search-row">
+            <div class="jobs-search-input">
+              <i data-lucide="search"></i>
+              <input type="text" id="jobSearchInput" placeholder="Search by role title, company name, skills (e.g. React, Python, Remote)...">
+              <button class="clear-input-btn" id="clearJobSearchBtn" aria-label="Clear job search" style="display:none;">
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+
+            <div class="jobs-select-group">
+              <!-- Type Filter -->
+              <div class="custom-select-wrap">
+                <select id="jobTypeFilter" aria-label="Filter by Job Type">
+                  <option value="all">All Employment Types</option>
+                  <option value="Internship">Internship (Summer / Fall)</option>
+                  <option value="Co-op">Co-op (6 Months)</option>
+                  <option value="Full-Time">Entry-Level Full-Time</option>
+                  <option value="Part-Time">Part-Time Student Role</option>
+                </select>
+              </div>
+
+              <!-- Location / Setting Filter -->
+              <div class="custom-select-wrap">
+                <select id="jobLocationFilter" aria-label="Filter by Location">
+                  <option value="all">All Locations</option>
+                  <option value="Remote">Remote Only</option>
+                  <option value="Hybrid">Hybrid</option>
+                  <option value="San Francisco, CA">San Francisco, CA</option>
+                  <option value="New York, NY">New York, NY</option>
+                  <option value="Seattle, WA">Seattle, WA</option>
+                  <option value="Austin, TX">Austin, TX</option>
+                </select>
+              </div>
+
+              <!-- Sort Order -->
+              <div class="custom-select-wrap">
+                <select id="jobSortFilter" aria-label="Sort Jobs">
+                  <option value="newest">Newest First</option>
+                  <option value="stipend-high">Highest Stipend / Salary</option>
+                  <option value="deadline">Application Deadline Soonest</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Filters & Saved Switch -->
+          <div class="jobs-secondary-bar">
+            <div class="jobs-tags-quick" id="jobCategoryTags">
+              <button class="sub-pill active" data-dept="all">All Disciplines</button>
+              <button class="sub-pill" data-dept="Software Engineering">Software Engineering</button>
+              <button class="sub-pill" data-dept="Data & AI">Data & AI</button>
+              <button class="sub-pill" data-dept="Product & UI/UX">Product & Design</button>
+              <button class="sub-pill" data-dept="Cloud & Security">Cloud & Security</button>
+            </div>
+
+            <div class="jobs-filter-actions">
+              <button class="btn btn-ghost btn-sm" id="bookmarkedOnlyToggleBtn">
+                <i data-lucide="bookmark"></i>
+                <span id="savedFilterText">Show Saved (<span id="savedCountLabel">0</span>)</span>
+              </button>
+              <button class="btn btn-ghost btn-sm" id="resetAllJobsFiltersBtn">
+                <i data-lucide="rotate-ccw"></i>
+                <span>Reset</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Results Header Count -->
+        <div class="jobs-results-status">
+          <span class="results-count-text" id="jobsResultCount">Showing 8 opportunities</span>
+          <span class="results-note">Updated daily with verified recruiter postings</span>
+        </div>
+
+        <!-- Jobs Listing Grid / Cards -->
+        <div class="jobs-grid" id="jobsGridContainer">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Jobs Empty State -->
+        <div class="jobs-empty-state" id="jobsEmptyState" style="display: none;">
+          <div class="empty-icon"><i data-lucide="briefcase"></i></div>
+          <h3>No matching jobs or internships found</h3>
+          <p>We couldn't find any opportunities matching your active search filters. Try broadening your keywords or reset all filters.</p>
+          <button class="btn btn-primary btn-sm" id="jobsEmptyResetBtn">Reset All Job Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CONTACT & ADVISING -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i data-lucide="send"></i>
+            <span>Connect & Support</span>
+          </div>
+          <h2 class="section-title">Get in Touch with Career Advisory</h2>
+          <p class="section-subtitle">
+            Have questions regarding resume reviews, employer recruitment partnerships, or mentorship opportunities? Send us a message!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Contact Details Cards -->
+          <div class="contact-info-column">
+            <div class="info-card">
+              <div class="info-icon bg-indigo">
+                <i data-lucide="map-pin"></i>
+              </div>
+              <div class="info-content">
+                <h4>Campus Career Center</h4>
+                <p>Student Innovation Union &bull; Suite 402<br>University Campus Center &bull; San Francisco, CA</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon bg-emerald">
+                <i data-lucide="mail"></i>
+              </div>
+              <div class="info-content">
+                <h4>Official Inquiries</h4>
+                <p><strong>Students:</strong> advising@careerpulse.edu</p>
+                <p><strong>Recruiters:</strong> partnerships@careerpulse.edu</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon bg-amber">
+                <i data-lucide="clock"></i>
+              </div>
+              <div class="info-content">
+                <h4>Advising Office Hours</h4>
+                <p>Monday &ndash; Friday: 9:00 AM &ndash; 5:00 PM PST</p>
+                <p>Drop-in Resume Critiques: Wed 2:00 PM &ndash; 4:00 PM</p>
+              </div>
+            </div>
+
+            <!-- FAQ Accordion Snippet -->
+            <div class="quick-faq-box">
+              <h5><i data-lucide="help-circle"></i> Quick Student FAQs</h5>
+              <details class="faq-item">
+                <summary>How do I request a 1-on-1 mock technical interview?</summary>
+                <p>Select "1-on-1 Career Mentorship" in the category field on the right and specify your desired technical discipline.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Can outside employers post internships here?</summary>
+                <p>Yes, vetted corporate partners and early-stage startups can submit postings via the Recruiter Partnership dropdown category.</p>
+              </details>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Contact Form with Validation -->
+          <div class="contact-form-card">
+            <h3 class="form-title">Send a Direct Message</h3>
+            <p class="form-desc">Fill in the fields below. Our advising team typically responds within 1 business day.</p>
+
+            <form id="contactForm" novalidate>
+              <!-- Name & Email Row -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactName" class="form-label">Full Name <span class="required">*</span></label>
+                  <div class="input-icon-wrap">
+                    <i data-lucide="user"></i>
+                    <input type="text" id="contactName" name="name" class="form-control" placeholder="e.g. Alex Rivera" required minlength="3">
+                  </div>
+                  <span class="error-msg" id="nameError">Please enter your full name (at least 3 characters).</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="contactEmail" class="form-label">Email Address <span class="required">*</span></label>
+                  <div class="input-icon-wrap">
+                    <i data-lucide="at-sign"></i>
+                    <input type="email" id="contactEmail" name="email" class="form-control" placeholder="e.g. alex@university.edu" required>
+                  </div>
+                  <span class="error-msg" id="emailError">Please provide a valid email address.</span>
+                </div>
+              </div>
+
+              <!-- Inquirer Role & Category Row -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactRole" class="form-label">I Am A... <span class="required">*</span></label>
+                  <select id="contactRole" name="role" class="form-control" required>
+                    <option value="">Select your affiliation...</option>
+                    <option value="student">Current Undergraduate / Graduate Student</option>
+                    <option value="recruiter">Corporate Recruiter / Employer</option>
+                    <option value="alumni">University Alumni / Industry Mentor</option>
+                    <option value="faculty">Faculty / Academic Advisor</option>
+                  </select>
+                  <span class="error-msg" id="roleError">Please select your affiliation.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="contactCategory" class="form-label">Topic / Purpose <span class="required">*</span></label>
+                  <select id="contactCategory" name="category" class="form-control" required>
+                    <option value="">Select a subject area...</option>
+                    <option value="mentorship">1-on-1 Career Mentorship & Advising</option>
+                    <option value="resume">Resume Critique & Portfolio Review</option>
+                    <option value="employer">Recruiter Partnership & Job Posting</option>
+                    <option value="bug">Platform Feedback or Technical Issue</option>
+                    <option value="other">General Inquiries</option>
+                  </select>
+                  <span class="error-msg" id="categoryError">Please select an inquiry topic.</span>
+                </div>
+              </div>
+
+              <!-- Subject Input -->
+              <div class="form-group">
+                <label for="contactSubject" class="form-label">Subject Line <span class="required">*</span></label>
+                <div class="input-icon-wrap">
+                  <i data-lucide="tag"></i>
+                  <input type="text" id="contactSubject" name="subject" class="form-control" placeholder="Brief subject summary..." required minlength="5">
+                </div>
+                <span class="error-msg" id="subjectError">Please provide a subject line (min 5 characters).</span>
+              </div>
+
+              <!-- Message Input -->
+              <div class="form-group">
+                <label for="contactMessage" class="form-label">Message Details <span class="required">*</span></label>
+                <textarea id="contactMessage" name="message" class="form-control textarea" rows="4" placeholder="How can our career team help you succeed? Please include relevant context..." required minlength="20"></textarea>
+                <div class="textarea-footer">
+                  <span class="error-msg" id="messageError">Message must contain at least 20 characters.</span>
+                  <span class="char-count" id="contactCharCount">0 / 20 min chars</span>
+                </div>
+              </div>
+
+              <!-- Consent Checkbox -->
+              <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="contactConsent" name="consent" required>
+                  <span>I agree to receive response communications regarding this career counseling inquiry.</span>
+                </label>
+                <span class="error-msg" id="consentError">You must agree before submitting.</span>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary full-width" id="contactSubmitBtn">
+                <span class="btn-text">Submit Inquiry</span>
+                <i data-lucide="send" class="btn-icon"></i>
+                <span class="btn-spinner" style="display:none;"><i data-lucide="loader-2"></i></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand-col">
+        <a href="#home" class="nav-logo">
+          <div class="logo-icon">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <span class="logo-text">Career<span>Pulse</span></span>
+        </a>
+        <p class="footer-tagline">
+          Empowering the next generation of engineers, designers, researchers, and innovators to excel in the global workforce.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn" aria-label="Github"><i data-lucide="github"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Youtube"><i data-lucide="youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-col">
+        <h5 class="footer-col-title">Navigation</h5>
+        <ul>
+          <li><a href="#home">Home Banner</a></li>
+          <li><a href="#profile">Student Profile</a></li>
+          <li><a href="#skills">Skills Matrix</a></li>
+          <li><a href="#projects">Student Projects</a></li>
+          <li><a href="#jobs">Jobs & Internships</a></li>
+          <li><a href="#contact">Contact Advisory</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h5 class="footer-col-title">Career Resources</h5>
+        <ul>
+          <li><a href="#profile" id="footerResumeLink">Resume Template</a></li>
+          <li><a href="#jobs">Summer 2027 Internships</a></li>
+          <li><a href="#jobs">Remote Tech Roles</a></li>
+          <li><a href="#skills">In-Demand Tech Skills</a></li>
+          <li><a href="#contact">Mock Interviews</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h5 class="footer-col-title">University Portal</h5>
+        <ul>
+          <li><a href="#">Academic Calendar</a></li>
+          <li><a href="#">Department of CS</a></li>
+          <li><a href="#">Alumni Mentorship</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <p>&copy; 2026 CareerPulse Student Career Portal. Built with HTML5, CSS3, & Modern Vanilla JavaScript.</p>
+        <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to Top">
+          <span>Back to Top</span>
+          <i data-lucide="arrow-up"></i>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. JOB APPLICATION & DETAILS MODAL -->
+  <div class="modal-overlay" id="jobModal" role="dialog" aria-modal="true" aria-labelledby="jobModalTitle" style="display: none;">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-company-logo" id="jobModalLogo">CP</div>
+          <div>
+            <h3 class="modal-title" id="jobModalTitle">Software Engineer Intern</h3>
+            <p class="modal-subtitle" id="jobModalSubtitle">Google &bull; Mountain View, CA (Hybrid)</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="closeJobModalBtn" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Job Meta Pills -->
+        <div class="job-meta-row" id="jobModalMetaRow">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Job Description & Specs -->
+        <div class="job-detail-block">
+          <h4>About The Opportunity</h4>
+          <p id="jobModalDescription">Detailed job description goes here...</p>
+        </div>
+
+        <div class="job-detail-block">
+          <h4>Key Responsibilities & Qualifications</h4>
+          <ul id="jobModalRequirements" class="job-bullet-list">
+            <!-- Injected via JS -->
+          </ul>
+        </div>
+
+        <hr class="modal-divider">
+
+        <!-- Embedded Interactive Application Form -->
+        <div class="application-form-section">
+          <h4>Submit Application</h4>
+          <p class="application-subtext">Apply in 60 seconds with your CareerPulse profile information.</p>
+
+          <form id="jobApplicationForm" novalidate>
+            <input type="hidden" id="applyJobId" name="jobId">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="applyFullName" class="form-label">Full Name <span class="required">*</span></label>
+                <input type="text" id="applyFullName" class="form-control" value="Alex Rivera" required>
+                <span class="error-msg" id="applyNameError">Please enter your legal name.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="applyEmail" class="form-label">University Email <span class="required">*</span></label>
+                <input type="email" id="applyEmail" class="form-control" value="alex.rivera@campus.edu" required>
+                <span class="error-msg" id="applyEmailError">Please enter a valid email address.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="applyPhone" class="form-label">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="applyPhone" class="form-control" placeholder="(555) 019-2834" required pattern="^[0-9\-\+\(\)\s]{10,}$">
+                <span class="error-msg" id="applyPhoneError">Please enter a valid phone number.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="applyPortfolio" class="form-label">Portfolio / GitHub URL</label>
+                <input type="url" id="applyPortfolio" class="form-control" value="https://github.com/alexrivera-dev" placeholder="https://...">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="applyResumeFile" class="form-label">Attach Resume (PDF/DOCX) <span class="required">*</span></label>
+              <div class="file-drop-zone" id="fileDropZone">
+                <i data-lucide="file-up"></i>
+                <span id="fileDropLabel">Alex_Rivera_Resume_2026.pdf (Selected from Profile)</span>
+                <input type="file" id="applyResumeFile" accept=".pdf,.doc,.docx" style="display:none;">
+                <button type="button" class="btn btn-ghost btn-xs" id="browseFileBtn">Change File</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="applyNotes" class="form-label">Why are you interested in this role? <span class="required">*</span></label>
+              <textarea id="applyNotes" class="form-control textarea" rows="3" placeholder="Highlight relevant coursework, projects, or why you are a great match for this team..." required minlength="15"></textarea>
+              <span class="error-msg" id="applyNotesError">Please share at least 15 characters about your interest.</span>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline" id="cancelApplyBtn">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="submitApplyBtn">
+                <i data-lucide="send"></i>
+                <span>Send Application</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. PROJECT DETAILS MODAL -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle" style="display: none;">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="projectModalTitle">Project Title</h3>
+          <p class="modal-subtitle" id="projectModalCategory">Full-Stack Application &bull; 2025</p>
+        </div>
+        <button class="modal-close-btn" id="closeProjectModalBtn" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="project-modal-hero" id="projectModalHeroImgWrap">
+          <img src="" alt="Project Preview" id="projectModalImg" class="project-modal-img">
+        </div>
+
+        <div class="project-modal-tags" id="projectModalTags">
+          <!-- Tags injected via JS -->
+        </div>
+
+        <div class="project-modal-section">
+          <h4>Overview & Problem Solved</h4>
+          <p id="projectModalDesc"></p>
+        </div>
+
+        <div class="project-modal-section">
+          <h4>Technical Architecture & Implementation</h4>
+          <ul id="projectModalHighlights" class="job-bullet-list">
+            <!-- Highlights injected via JS -->
+          </ul>
+        </div>
+
+        <div class="project-modal-links" id="projectModalLinks">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="projectModalLiveBtn">
+            <i data-lucide="external-link"></i> Live Application
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="projectModalGithubBtn">
+            <i data-lucide="github"></i> Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. EDIT PROFILE MODAL (Interactive customization saved in localStorage) -->
+  <div class="modal-overlay" id="editProfileModal" role="dialog" aria-modal="true" aria-labelledby="editProfileTitle" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="editProfileTitle">Edit Student Profile</h3>
+        <button class="modal-close-btn" id="closeEditProfileBtn" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="editProfileForm" novalidate>
+          <div class="form-group">
+            <label for="editName" class="form-label">Full Name <span class="required">*</span></label>
+            <input type="text" id="editName" class="form-control" required minlength="3">
+            <span class="error-msg" id="editNameError">Please enter a valid name.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="editHeadline" class="form-label">Target Role / Headline <span class="required">*</span></label>
+            <input type="text" id="editHeadline" class="form-control" required minlength="5">
+            <span class="error-msg" id="editHeadlineError">Please specify your target role.</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="editGpa" class="form-label">Cumulative GPA <span class="required">*</span></label>
+              <input type="number" id="editGpa" class="form-control" step="0.01" min="0" max="4.0" required>
+              <span class="error-msg" id="editGpaError">Enter a GPA between 0.00 and 4.00.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="editLocation" class="form-label">Location / Availability <span class="required">*</span></label>
+              <input type="text" id="editLocation" class="form-control" required>
+              <span class="error-msg" id="editLocationError">Please enter your location.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="editBio" class="form-label">Bio / Career Objective <span class="required">*</span></label>
+            <textarea id="editBio" class="form-control textarea" rows="4" required minlength="20"></textarea>
+            <span class="error-msg" id="editBioError">Please enter at least 20 characters.</span>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="cancelEditProfileBtn">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="saveProfileBtn">
+              <i data-lucide="save"></i>
+              <span>Save Changes</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. RESUME PREVIEW MODAL -->
+  <div class="modal-overlay" id="resumePreviewModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" style="display: none;">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="resumeModalTitle">Resume Preview &bull; Alex Rivera</h3>
+        <div class="modal-header-actions">
+          <button class="btn btn-primary btn-sm" id="downloadResumeModalBtn">
+            <i data-lucide="download"></i> Download PDF
+          </button>
+          <button class="modal-close-btn" id="closeResumeModalBtn" aria-label="Close modal">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="resume-document" id="printableResume">
+          <div class="resume-header">
+            <h2 id="resumeDocName">Alex Rivera</h2>
+            <p class="resume-contact-line">
+              San Francisco, CA &bull; (415) 890-1234 &bull; alex.rivera@campus.edu &bull; linkedin.com/in/alexrivera &bull; github.com/alexrivera-dev
+            </p>
+          </div>
+
+          <div class="resume-section">
+            <h4 class="resume-section-title">EDUCATION</h4>
+            <div class="resume-entry">
+              <div class="entry-header">
+                <strong>State University of Technology</strong>
+                <span>Expected May 2026</span>
+              </div>
+              <div class="entry-sub">
+                <em>Bachelor of Science in Computer Science & Data Systems</em>
+                <span>GPA: 3.92 / 4.00</span>
+              </div>
+              <p class="entry-desc">
+                Relevant Coursework: Data Structures & Algorithms, Distributed Systems, Computer Systems & Architecture, Database Design, Applied Deep Learning.
+              </p>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h4 class="resume-section-title">TECHNICAL SKILLS</h4>
+            <p><strong>Languages:</strong> TypeScript, JavaScript, Python, Java, C++, SQL, HTML5, CSS3/Tailwind</p>
+            <p><strong>Frameworks & Tools:</strong> React 18, Next.js, Node.js, Express, FastAPI, PostgreSQL, MongoDB, Redis, Docker, Git, AWS (S3, EC2, Lambda)</p>
+          </div>
+
+          <div class="resume-section">
+            <h4 class="resume-section-title">EXPERIENCE</h4>
+            <div class="resume-entry">
+              <div class="entry-header">
+                <strong>University Tech Incubator &mdash; Software Engineering Fellow</strong>
+                <span>May 2025 &ndash; Aug 2025</span>
+              </div>
+              <ul class="resume-bullets">
+                <li>Architected full-stack portal used by 1,200+ campus researchers utilizing React, Node.js, and PostgreSQL.</li>
+                <li>Implemented Redis caching layers, reducing heavy analytics endpoint response times by 38%.</li>
+                <li>Established CI/CD automated test suites via GitHub Actions achieving 88% test branch coverage.</li>
+              </ul>
+            </div>
+
+            <div class="resume-entry">
+              <div class="entry-header">
+                <strong>Department of Computer Science &mdash; Teaching Assistant (CS 201)</strong>
+                <span>Jan 2025 &ndash; May 2025</span>
+              </div>
+              <ul class="resume-bullets">
+                <li>Conducted weekly code review labs for 85+ students covering OOP, algorithmic complexity, and debugging.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h4 class="resume-section-title">FEATURED PROJECTS</h4>
+            <div class="resume-entry">
+              <div class="entry-header">
+                <strong>OmniTask AI &mdash; Intelligent Team Collaboration Platform</strong>
+                <span>Next.js, FastAPI, OpenAI, PostgreSQL</span>
+              </div>
+              <p class="entry-desc">Engineered an AI-assisted sprint planning application serving 2,400+ weekly active student developers with real-time WebSockets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION SYSTEM -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
