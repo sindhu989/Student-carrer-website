@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // State Management
   const AppState = {
     theme: localStorage.getItem('cp_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
-    profile: JSON.parse(localStorage.getItem('cp_student_profile')) || DEFAULT_PROFILE,
-    savedJobIds: JSON.parse(localStorage.getItem('cp_saved_jobs')) || ["job-1", "job-3"],
+    profile: DataStore.getProfile(),
+    savedJobIds: DataStore.getSavedJobIds(),
     activeSkillCategory: 'all',
     activeProjectCategory: 'all',
     projectSearchQuery: '',
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         AppState.profile.location = editLocation.value.trim();
         AppState.profile.bio = editBio.value.trim();
 
-        localStorage.setItem('cp_student_profile', JSON.stringify(AppState.profile));
+        DataStore.saveProfile(AppState.profile);
         renderStudentProfile();
         closeModal(editProfileModal);
         showToast('Profile updated successfully!', 'success');
@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const count = AppState.savedJobIds.length;
     if (savedJobsCounter) savedJobsCounter.textContent = count;
     if (savedCountLabel) savedCountLabel.textContent = count;
-    localStorage.setItem('cp_saved_jobs', JSON.stringify(AppState.savedJobIds));
+    DataStore.saveSavedJobIds(AppState.savedJobIds);
   }
 
   updateSavedCounters();
@@ -552,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sort = AppState.jobSortOrder;
     const savedOnly = AppState.showSavedJobsOnly;
 
-    let filtered = INITIAL_JOBS.filter(job => {
+    let filtered = DataStore.getJobs().filter(job => {
       // Keyword Match
       const matchQuery = !query ||
         job.title.toLowerCase().includes(query) ||
@@ -692,7 +692,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openJobApplicationModal(jobId) {
-    const job = INITIAL_JOBS.find(j => j.id === jobId);
+    const job = DataStore.getJobs().find(j => j.id === jobId);
     if (!job) return;
 
     applyJobId.value = job.id;
@@ -773,6 +773,22 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = origBtnText;
+
+          // Save application into DataStore so Admin can see it!
+          const appliedJob = DataStore.getJobs().find(j => j.id === applyJobId.value) || {};
+          const portfolioElem = document.getElementById('applyPortfolio');
+          DataStore.addApplication({
+            jobId: applyJobId.value,
+            jobTitle: jobModalTitle.textContent,
+            company: appliedJob.company || "Company",
+            candidateName: applyFullName.value.trim(),
+            candidateEmail: applyEmail.value.trim(),
+            candidatePhone: applyPhone.value.trim(),
+            portfolioUrl: portfolioElem ? portfolioElem.value.trim() : '',
+            resumeFileName: fileDropLabel ? fileDropLabel.textContent : 'Resume.pdf',
+            coverNote: applyNotes.value.trim()
+          });
+
           closeModal(jobModal);
           jobApplicationForm.reset();
           // Restore default profile data
@@ -1056,6 +1072,17 @@ document.addEventListener('DOMContentLoaded', () => {
           if (btnSpinner) btnSpinner.style.display = 'none';
 
           const senderName = contactName.value.trim();
+
+          // Save inquiry into DataStore so Admin can read it in Inbox
+          DataStore.addInquiry({
+            name: senderName,
+            email: contactEmail.value.trim(),
+            role: contactRole.value,
+            category: contactCategory.value,
+            subject: contactSubject.value.trim(),
+            message: contactMessage.value.trim()
+          });
+
           contactForm.reset();
           if (contactCharCount) contactCharCount.textContent = '0 / 20 min chars';
 

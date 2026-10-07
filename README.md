@@ -88,11 +88,26 @@ python -m http.server 8000
 
 ```
 student/
-├── index.html            # Main semantic markup & modals
+├── index.html            # Public Student Portal (Home, Profile, Skills, Projects, Jobs, Contact)
+├── admin.html            # Dedicated Admin Management Portal (CRUD Jobs, Review Apps, Inbox)
 ├── css/
-│   └── style.css         # Design system tokens, light/dark themes, responsive layout
+│   ├── style.css         # Public portal styles (glassmorphism, themes, responsive layout)
+│   └── admin.css         # Admin dashboard styles (sidebar, KPI cards, data tables, modals)
 ├── js/
-│   ├── data.js           # Static data models for profile, skills, projects, and jobs
-│   └── app.js            # Reactive application logic, validation, modals, toast system
-└── README.md             # Documentation & guide
+│   ├── data.js           # Static data seeds for profile, skills, projects, and jobs
+│   ├── store.js          # Unified DataStore synchronizing public site and admin portal via localStorage
+│   ├── app.js            # Public student portal reactive controller
+│   └── admin.js          # Admin dashboard controller (CRUD operations, status reviews, inbox)
+├── server.js             # Built-in local HTTP server
+└── README.md             # Project documentation & usage guide
 ```
+
+---
+
+## 🛡️ Admin Panel Features (`admin.html`)
+
+- **Dashboard Overview:** KPI stats tracking total jobs, received applications, accepted offers, and unread inquiries.
+- **Jobs & Internships Manager:** Full CRUD capability to add, edit, or delete opportunities with instant synchronization to the public job board.
+- **Applications Reviewer:** Review all submitted candidate applications with status toggles (`Pending`, `Reviewing`, `Accepted`, `Rejected`) and detailed dossier previews.
+- **Contact Advisory Inbox:** View, filter, and respond to incoming mentorship and recruiter messages with read/unread flags.
+- **Live Two-Way Data Sync:** Data added or updated in either portal immediately reflects in both views via `DataStore`.

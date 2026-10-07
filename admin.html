@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerPulse Admin Portal | Opportunity & Applicant Management</title>
+  <meta name="description" content="Administrative control center for posting student internships, reviewing candidate applications, and managing career advising inquiries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-brand">
+        <a href="admin.html" class="brand-link">
+          <div class="brand-icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <span>Career<span>Pulse</span> <span class="admin-badge">Admin</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Operations</div>
+        
+        <button class="sidebar-link active" data-tab="tab-dashboard">
+          <div class="sidebar-link-content">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </div>
+        </button>
+
+        <button class="sidebar-link" data-tab="tab-jobs">
+          <div class="sidebar-link-content">
+            <i data-lucide="briefcase"></i>
+            <span>Jobs & Internships</span>
+          </div>
+          <span class="sidebar-counter" id="sidebarJobsCount">8</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="tab-applications">
+          <div class="sidebar-link-content">
+            <i data-lucide="users"></i>
+            <span>Applications</span>
+          </div>
+          <span class="sidebar-counter highlight" id="sidebarAppsCount">3</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="tab-inquiries">
+          <div class="sidebar-link-content">
+            <i data-lucide="inbox"></i>
+            <span>Contact Inbox</span>
+          </div>
+          <span class="sidebar-counter" id="sidebarInquiriesCount">2</span>
+        </button>
+
+        <div class="nav-section-title">System</div>
+
+        <button class="sidebar-link" data-tab="tab-settings">
+          <div class="sidebar-link-content">
+            <i data-lucide="settings"></i>
+            <span>System Settings</span>
+          </div>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="view-site-card" title="Open Public Student Portal">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <i data-lucide="external-link" style="width:16px;height:16px;"></i>
+            <span>View Student Site</span>
+          </div>
+          <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="admin-main">
+      <!-- HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle Navigation">
+            <i data-lucide="menu"></i>
+          </button>
+          <h1 class="page-title" id="pageTitle">Admin Dashboard</h1>
+        </div>
+
+        <div class="header-right">
+          <!-- Theme Toggle -->
+          <button class="header-action-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" class="theme-icon-moon"></i>
+            <i data-lucide="sun" class="theme-icon-sun" style="display:none;"></i>
+          </button>
+
+          <!-- Quick Post Job Button -->
+          <button class="btn btn-primary btn-sm" id="quickPostJobBtn">
+            <i data-lucide="plus"></i>
+            <span>Post Opportunity</span>
+          </button>
+
+          <!-- Admin User Profile -->
+          <div class="admin-user-pill">
+            <div class="admin-avatar">CP</div>
+            <div class="admin-info">
+              <span class="admin-name">Career Admin</span>
+              <span class="admin-role">University Portal</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY -->
+      <main class="admin-content">
+        <!-- 1. DASHBOARD TAB -->
+        <section class="admin-tab-pane active" id="tab-dashboard">
+          <!-- KPI Stats Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon-wrapper icon-blue">
+                <i data-lucide="briefcase"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Active Opportunities</span>
+                <span class="stat-number" id="statTotalJobs">8</span>
+                <span class="stat-trend" id="statActiveInternships">6 Summer Internships</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper icon-indigo">
+                <i data-lucide="file-check-2"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Total Applications</span>
+                <span class="stat-number" id="statTotalApps">3</span>
+                <span class="stat-trend" id="statPendingApps">1 Pending Review</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper icon-emerald">
+                <i data-lucide="check-circle-2"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Offers Accepted</span>
+                <span class="stat-number" id="statAcceptedApps">1</span>
+                <span class="stat-trend">33% Placement Rate</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper icon-amber">
+                <i data-lucide="mail"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Advising Messages</span>
+                <span class="stat-number" id="statTotalInquiries">2</span>
+                <span class="stat-trend" id="statUnreadInquiries">1 New Inquiry</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Applications Table Section -->
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h2 class="card-header-title">
+                <i data-lucide="clock"></i>
+                <span>Recent Candidate Applications</span>
+              </h2>
+              <button class="btn btn-outline btn-sm" id="viewAllAppsBtn">View All Applications &rarr;</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Candidate</th>
+                    <th>Role Applied For</th>
+                    <th>Company</th>
+                    <th>Applied Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="recentAppsTableBody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Recent Inquiries Section -->
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h2 class="card-header-title">
+                <i data-lucide="message-square"></i>
+                <span>Recent Advisory Inquiries</span>
+              </h2>
+              <button class="btn btn-outline btn-sm" id="viewAllInquiriesBtn">View Inbox &rarr;</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Sender</th>
+                    <th>Affiliation</th>
+                    <th>Subject</th>
+                    <th>Received</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="recentInquiriesTableBody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. JOBS & INTERNSHIPS MANAGEMENT TAB -->
+        <section class="admin-tab-pane" id="tab-jobs">
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h2 class="card-header-title">
+                <i data-lucide="briefcase"></i>
+                <span>Manage Opportunities & Internships</span>
+              </h2>
+              <button class="btn btn-primary btn-sm" id="postJobModalBtn">
+                <i data-lucide="plus"></i>
+                <span>Add New Job</span>
+              </button>
+            </div>
+
+            <!-- Table Filters -->
+            <div class="table-toolbar">
+              <div class="search-field">
+                <i data-lucide="search"></i>
+                <input type="text" id="adminJobSearch" placeholder="Search by role, company, or skills...">
+              </div>
+
+              <div class="filter-selects">
+                <select class="admin-select" id="adminJobTypeFilter">
+                  <option value="all">All Types</option>
+                  <option value="Internship">Internship</option>
+                  <option value="Co-op">Co-op</option>
+                  <option value="Full-Time">Full-Time</option>
+                </select>
+
+                <select class="admin-select" id="adminJobDeptFilter">
+                  <option value="all">All Departments</option>
+                  <option value="Software Engineering">Software Engineering</option>
+                  <option value="Data & AI">Data & AI</option>
+                  <option value="Product & UI/UX">Product & Design</option>
+                  <option value="Cloud & Security">Cloud & Security</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Jobs Table -->
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Opportunity & Company</th>
+                    <th>Department</th>
+                    <th>Type</th>
+                    <th>Location / Mode</th>
+                    <th>Compensation</th>
+                    <th>Deadline</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminJobsTableBody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. APPLICATIONS REVIEW TAB -->
+        <section class="admin-tab-pane" id="tab-applications">
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h2 class="card-header-title">
+                <i data-lucide="users"></i>
+                <span>Candidate Applications</span>
+              </h2>
+              <span class="stat-label" id="appsCountLabel">3 Applications on file</span>
+            </div>
+
+            <!-- Applications Toolbar -->
+            <div class="table-toolbar">
+              <div class="search-field">
+                <i data-lucide="search"></i>
+                <input type="text" id="adminAppSearch" placeholder="Search candidate, email, or role...">
+              </div>
+
+              <div class="filter-selects">
+                <select class="admin-select" id="adminAppStatusFilter">
+                  <option value="all">All Statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Reviewing">Reviewing</option>
+                  <option value="Accepted">Accepted</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Applications Table -->
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Candidate</th>
+                    <th>Applied Position</th>
+                    <th>Company</th>
+                    <th>Submission Date</th>
+                    <th>Review Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminAppsTableBody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. INBOX & MESSAGES TAB -->
+        <section class="admin-tab-pane" id="tab-inquiries">
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h2 class="card-header-title">
+                <i data-lucide="inbox"></i>
+                <span>Career Advisory Messages & Inquiries</span>
+              </h2>
+              <span class="stat-label" id="inquiriesCountLabel">2 Total Inquiries</span>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Sender & Contact</th>
+                    <th>Affiliation</th>
+                    <th>Topic</th>
+                    <th>Subject & Message</th>
+                    <th>Received</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminInquiriesTableBody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. SETTINGS TAB -->
+        <section class="admin-tab-pane" id="tab-settings">
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h2 class="card-header-title">
+                <i data-lucide="settings"></i>
+                <span>Portal Management & Data Synchronization</span>
+              </h2>
+            </div>
+            <div class="modal-body" style="max-width:680px;">
+              <h3 style="font-size:1.1rem; margin-bottom:8px;">Live Data Storage & Sync</h3>
+              <p style="color:var(--admin-text-muted); font-size:0.9rem; margin-bottom:24px;">
+                Changes made in this Admin Portal (such as creating, editing, or deleting jobs) are saved to browser storage and instantaneously reflected on the public student website.
+              </p>
+
+              <div style="display:flex; flex-direction:column; gap:16px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:16px; background:var(--admin-bg); border:1px solid var(--admin-border); border-radius:var(--radius-md);">
+                  <div>
+                    <strong>Reset Sample Data</strong>
+                    <p style="font-size:0.8rem; color:var(--admin-text-muted);">Restore default sample jobs, projects, and applications.</p>
+                  </div>
+                  <button class="btn btn-outline btn-sm" id="resetDataBtn">Reset Demo Data</button>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:16px; background:var(--admin-bg); border:1px solid var(--admin-border); border-radius:var(--radius-md);">
+                  <div>
+                    <strong>Switch to Student View</strong>
+                    <p style="font-size:0.8rem; color:var(--admin-text-muted);">View the website as an undergraduate or campus recruiter.</p>
+                  </div>
+                  <a href="index.html" class="btn btn-primary btn-sm">Open Public Site</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. POST / EDIT JOB MODAL -->
+  <div class="modal-overlay" id="jobModal" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="jobModalHeading">Post New Opportunity</h3>
+        <button class="modal-close-btn" id="closeJobModalBtn">&times;</button>
+      </div>
+      <form id="jobForm" novalidate>
+        <div class="modal-body">
+          <input type="hidden" id="jobFormId">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jobFormTitle" class="form-label">Role Title <span class="required">*</span></label>
+              <input type="text" id="jobFormTitle" class="form-input" placeholder="e.g. Software Engineering Intern" required>
+            </div>
+
+            <div class="form-group">
+              <label for="jobFormCompany" class="form-label">Company Name <span class="required">*</span></label>
+              <input type="text" id="jobFormCompany" class="form-input" placeholder="e.g. Stripe, Google, Startup" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jobFormType" class="form-label">Employment Type <span class="required">*</span></label>
+              <select id="jobFormType" class="form-select" required>
+                <option value="Internship">Internship (Summer / Fall)</option>
+                <option value="Co-op">Co-op (6 Months)</option>
+                <option value="Full-Time">Full-Time Entry Level</option>
+                <option value="Part-Time">Part-Time Student Role</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="jobFormDepartment" class="form-label">Department / Track <span class="required">*</span></label>
+              <select id="jobFormDepartment" class="form-select" required>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Data & AI">Data & AI</option>
+                <option value="Product & UI/UX">Product & Design</option>
+                <option value="Cloud & Security">Cloud & Security</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jobFormLocation" class="form-label">Location (City, State) <span class="required">*</span></label>
+              <input type="text" id="jobFormLocation" class="form-input" placeholder="e.g. San Francisco, CA or Remote" required>
+            </div>
+
+            <div class="form-group">
+              <label for="jobFormSetting" class="form-label">Work Setting <span class="required">*</span></label>
+              <select id="jobFormSetting" class="form-select" required>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="On-site">On-site</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jobFormStipend" class="form-label">Stipend / Salary <span class="required">*</span></label>
+              <input type="text" id="jobFormStipend" class="form-input" placeholder="e.g. $45 - $55 / hr" required>
+            </div>
+
+            <div class="form-group">
+              <label for="jobFormDeadline" class="form-label">Application Deadline <span class="required">*</span></label>
+              <input type="text" id="jobFormDeadline" class="form-input" placeholder="e.g. Nov 30, 2026" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="jobFormTags" class="form-label">Required Tech Stack / Skills (comma-separated)</label>
+            <input type="text" id="jobFormTags" class="form-input" placeholder="e.g. React, TypeScript, Python, AWS">
+          </div>
+
+          <div class="form-group">
+            <label for="jobFormDesc" class="form-label">Job Description <span class="required">*</span></label>
+            <textarea id="jobFormDesc" class="form-textarea" rows="3" placeholder="Overview of the internship role and expectations..." required></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelJobModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveJobModalBtn">Save Opportunity</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. APPLICATION DETAILS MODAL -->
+  <div class="modal-overlay" id="appDetailModal" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="appDetailTitle">Applicant Dossier</h3>
+        <button class="modal-close-btn" id="closeAppDetailBtn">&times;</button>
+      </div>
+      <div class="modal-body" id="appDetailBody">
+        <!-- Injected via JS -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="dismissAppDetailBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="adminToastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
